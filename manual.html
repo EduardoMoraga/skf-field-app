@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manual de Encuesta SKF - Trade Marketing 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; color: #1a1a2e; line-height: 1.5; padding: 0; margin: 0; }
+  @media print {
+    body { padding: 0; }
+    .no-print { display: none !important; }
+    .page-break { page-break-before: always; }
+    .cover { height: 100vh; }
+  }
+  @media screen {
+    body { max-width: 850px; margin: 0 auto; }
+  }
+
+  /* === COVER PAGE === */
+  .cover {
+    background: linear-gradient(135deg, #003366 0%, #0070d2 50%, #00a3e0 100%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 40px;
+    min-height: 100vh;
+    position: relative;
+  }
+  .cover-logo {
+    width: 120px; height: 120px;
+    background: white;
+    border-radius: 24px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  }
+  .cover-logo span { font-size: 42px; font-weight: 800; color: #003366; letter-spacing: -1px; }
+  .cover h1 { font-size: 36px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px; }
+  .cover h2 { font-size: 20px; font-weight: 300; opacity: 0.9; margin-bottom: 40px; }
+  .cover-meta { display: flex; gap: 30px; margin-top: 20px; }
+  .cover-meta-item { text-align: center; }
+  .cover-meta-item .num { font-size: 32px; font-weight: 700; }
+  .cover-meta-item .label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; }
+  .cover-divider { width: 60px; height: 3px; background: rgba(255,255,255,0.5); border-radius: 2px; margin: 30px 0; }
+  .cover-table { margin-top: 30px; width: 100%; max-width: 500px; }
+  .cover-table td { padding: 6px 12px; font-size: 13px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.15); }
+  .cover-table td:first-child { font-weight: 600; opacity: 0.8; width: 40%; }
+  .cover-footer { position: absolute; bottom: 25px; font-size: 11px; opacity: 0.6; }
+
+  /* === CONTENT PAGES === */
+  .content { padding: 30px 40px; }
+  h2.section-title {
+    font-size: 17px; font-weight: 700; color: #003366;
+    margin: 22px 0 10px; padding: 7px 12px;
+    background: linear-gradient(90deg, #e8f0fe 0%, transparent 100%);
+    border-left: 4px solid #0070d2;
+    border-radius: 0 6px 6px 0;
+  }
+  p.section-desc { font-size: 12px; color: #666; margin: 0 0 8px 16px; }
+
+  /* === FLOW === */
+  .flow { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; margin: 12px 0 18px; justify-content: center; }
+  .flow-step { background: #0070d2; color: white; padding: 5px 10px; border-radius: 16px; font-size: 11px; font-weight: 600; white-space: nowrap; }
+  .flow-arrow { color: #0070d2; font-size: 14px; }
+
+  /* === FIELDS TABLE === */
+  .fields-table { width: 100%; border-collapse: collapse; font-size: 12px; margin: 4px 0 16px; }
+  .fields-table th { background: #003366; color: white; padding: 6px 10px; text-align: left; font-size: 11px; font-weight: 600; }
+  .fields-table td { padding: 5px 10px; border-bottom: 1px solid #e8e8e8; vertical-align: top; }
+  .fields-table tr:nth-child(even) { background: #f8fafc; }
+  .fields-table tr:hover { background: #eef4ff; }
+  .fname { font-weight: 600; color: #1a1a2e; }
+  .badge { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; margin-left: 4px; vertical-align: middle; }
+  .b-req { background: #fde8e8; color: #c0392b; }
+  .b-opt { background: #e8f5e9; color: #2e7d32; }
+  .b-cond { background: #fff8e1; color: #f57f17; }
+  .b-auto { background: #e3f2fd; color: #1565c0; }
+  .tip { color: #888; font-style: italic; font-size: 11px; }
+
+  /* === COMMANDMENTS === */
+  .commandments {
+    background: linear-gradient(135deg, #003366 0%, #004080 100%);
+    color: white; padding: 20px 24px; border-radius: 10px; margin: 18px 0;
+    page-break-inside: avoid;
+  }
+  .commandments h3 { font-size: 16px; margin-bottom: 12px; text-align: center; font-weight: 700; letter-spacing: 0.5px; }
+  .cmd-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 16px; }
+  .cmd-item { display: flex; gap: 8px; align-items: flex-start; font-size: 11.5px; line-height: 1.4; }
+  .cmd-num { background: rgba(255,255,255,0.2); color: white; min-width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 10px; flex-shrink: 0; }
+  .cmd-text strong { color: #7ec8f0; }
+
+  /* === REPS TABLE === */
+  .reps-table { width: 100%; border-collapse: collapse; font-size: 12px; margin: 8px 0; }
+  .reps-table th { background: #003366; color: white; padding: 6px 10px; text-align: left; font-size: 11px; }
+  .reps-table td { padding: 5px 10px; border-bottom: 1px solid #e0e0e0; }
+  .reps-table tr:nth-child(even) { background: #f8f9fa; }
+
+  /* === TIPS BOX === */
+  .tips-box { background: #fffde7; border: 1px solid #fff176; border-radius: 8px; padding: 12px 16px; margin: 12px 0; }
+  .tips-box h3 { font-size: 13px; color: #f57f17; margin-bottom: 6px; }
+  .tips-box ul { margin: 0 0 0 18px; font-size: 11.5px; }
+  .tips-box li { margin: 3px 0; }
+
+  /* === PRINT BUTTON === */
+  .print-btn { display: block; margin: 15px auto; padding: 10px 28px; background: #0070d2; color: white; border: none; border-radius: 8px; font-size: 14px; cursor: pointer; font-weight: 600; }
+  .print-btn:hover { background: #005bb5; }
+
+  .footer { text-align: center; color: #aaa; font-size: 10px; margin-top: 20px; padding: 10px; border-top: 1px solid #eee; }
+</style>
+</head>
+<body>
+
+<!-- ============ COVER PAGE ============ -->
+<div class="cover">
+  <div class="cover-logo"><span>SKF</span></div>
+  <h1>Manual de Encuesta</h1>
+  <h2>Trade Marketing Argentina 2026</h2>
+  <div class="cover-divider"></div>
+  <div class="cover-meta">
+    <div class="cover-meta-item"><div class="num">5</div><div class="label">Secciones</div></div>
+    <div class="cover-meta-item"><div class="num">35</div><div class="label">Preguntas</div></div>
+    <div class="cover-meta-item"><div class="num">5</div><div class="label">Recursos</div></div>
+    <div class="cover-meta-item"><div class="num">1349</div><div class="label">PDVs</div></div>
+  </div>
+  <table class="cover-table">
+    <tr><td>Facundo Torres</td><td>Todas las zonas</td></tr>
+    <tr><td>Ezequiel Marecos</td><td>Capital Federal (CABA)</td></tr>
+    <tr><td>Mariano Farruguella</td><td>GBA - Zona Sur</td></tr>
+    <tr><td>Juan Ignacio Lucente</td><td>GBA - Zona Oeste</td></tr>
+    <tr><td>Daniel Varisco</td><td>GBA - Zona Norte</td></tr>
+  </table>
+  <div class="cover-footer">Increxa BI &middot; Marzo 2026 &middot; v1.0</div>
+</div>
+
+<!-- ============ PAGE 2: MANDAMIENTOS + FLUJO ============ -->
+<div class="content page-break">
+
+<button class="print-btn no-print" onclick="window.print()">Descargar como PDF</button>
+
+<div class="commandments">
+  <h3>LOS 10 MANDAMIENTOS DEL ENCUESTADOR SKF</h3>
+  <div class="cmd-grid">
+    <div class="cmd-item"><div class="cmd-num">1</div><div class="cmd-text"><strong>Identificate siempre.</strong> Presenta tu nombre y que representas a SKF antes de empezar.</div></div>
+    <div class="cmd-item"><div class="cmd-num">2</div><div class="cmd-text"><strong>Una encuesta = una visita real.</strong> Solo completa estando fisicamente en el PDV.</div></div>
+    <div class="cmd-item"><div class="cmd-num">3</div><div class="cmd-text"><strong>GPS siempre activo.</strong> La geolocalizacion valida tu presencia. Sin GPS no hay validez.</div></div>
+    <div class="cmd-item"><div class="cmd-num">4</div><div class="cmd-text"><strong>Foto de fachada obligatoria.</strong> Debe verse el nombre del comercio. Sin foto no cuenta.</div></div>
+    <div class="cmd-item"><div class="cmd-num">5</div><div class="cmd-text"><strong>No induzcas respuestas.</strong> En Top of Mind (B1), NO menciones SKF. Deja responder libre.</div></div>
+    <div class="cmd-item"><div class="cmd-num">6</div><div class="cmd-text"><strong>Registra lo que escuchas.</strong> Las respuestas son del cliente, no tu interpretacion.</div></div>
+    <div class="cmd-item"><div class="cmd-num">7</div><div class="cmd-text"><strong>Campos obligatorios siempre.</strong> Los campos con * son imprescindibles. No envies incompleto.</div></div>
+    <div class="cmd-item"><div class="cmd-num">8</div><div class="cmd-text"><strong>Un PDV por encuesta.</strong> Cada punto de venta es una encuesta separada.</div></div>
+    <div class="cmd-item"><div class="cmd-num">9</div><div class="cmd-text"><strong>Seguimiento es clave.</strong> Si hay interes, registra como prefiere ser contactado.</div></div>
+    <div class="cmd-item"><div class="cmd-num">10</div><div class="cmd-text"><strong>Honestidad ante todo.</strong> Si no entraste al PDV, NO inventes. Usa Observaciones.</div></div>
+  </div>
+</div>
+
+<h2 class="section-title">Flujo de la Encuesta</h2>
+<div class="flow">
+  <span class="flow-step">1. Datos del PDV</span><span class="flow-arrow">&#10132;</span>
+  <span class="flow-step">2. RFM - Leads</span><span class="flow-arrow">&#10132;</span>
+  <span class="flow-step">3. Marca SKF</span><span class="flow-arrow">&#10132;</span>
+  <span class="flow-step">4. Oportunidad</span><span class="flow-arrow">&#10132;</span>
+  <span class="flow-step">5. Fotos + Obs.</span>
+</div>
+
+<!-- ============ SECTION 1 ============ -->
+<h2 class="section-title">Pagina 1 &mdash; Datos del Cliente / PDV</h2>
+<table class="fields-table">
+  <tr><th style="width:30%">Campo</th><th style="width:8%">Tipo</th><th>Instruccion</th></tr>
+  <tr><td class="fname">Representante de Marca <span class="badge b-req">Req</span></td><td>Desplegable</td><td>Selecciona tu nombre.</td></tr>
+  <tr><td class="fname">Zona <span class="badge b-req">Req</span></td><td>Desplegable</td><td>Se filtra segun tu nombre. Selecciona donde estas.</td></tr>
+  <tr><td class="fname">Punto de Venta <span class="badge b-req">Req</span></td><td>Autocomplete</td><td>Escribi las primeras letras y selecciona. Si no aparece: ">> PDV NO ENCONTRADO".</td></tr>
+  <tr><td class="fname">Nombre Fantasia <span class="badge b-cond">Cond</span></td><td>Texto</td><td>Solo si el PDV no esta en la lista. Nombre tal como aparece en la fachada.</td></tr>
+  <tr><td class="fname">CUIT <span class="badge b-opt">Opc</span></td><td>Texto</td><td>Si el comerciante lo proporciona.</td></tr>
+  <tr><td class="fname">Direccion <span class="badge b-req">Req</span></td><td>Texto</td><td>Calle, numero, localidad completa.</td></tr>
+  <tr><td class="fname">Barrio / Zona <span class="badge b-opt">Opc</span></td><td>Texto</td><td>Barrio o zona de referencia.</td></tr>
+  <tr><td class="fname">Tipo de PDV <span class="badge b-req">Req</span></td><td>Desplegable</td><td>Taller, Autopartes, Lubricentro, Distribuidor, etc.</td></tr>
+  <tr><td class="fname">Nombre del Contacto <span class="badge b-req">Req</span></td><td>Texto</td><td>Persona entrevistada (duenio, encargado, vendedor).</td></tr>
+  <tr><td class="fname">Cargo del Contacto <span class="badge b-opt">Opc</span></td><td>Texto</td><td>Rol de la persona.</td></tr>
+  <tr><td class="fname">Telefono / Email <span class="badge b-opt">Opc</span></td><td>Texto</td><td>Para seguimiento comercial.</td></tr>
+</table>
+
+<!-- ============ SECTION 2 ============ -->
+<h2 class="section-title">Pagina 2 &mdash; Seccion A: RFM &middot; Calificacion de Leads</h2>
+<p class="section-desc">Mide Recencia, Frecuencia y Monto para clasificar al cliente.</p>
+<table class="fields-table">
+  <tr><th style="width:30%">Campo</th><th style="width:8%">Tipo</th><th>Instruccion</th></tr>
+  <tr><td class="fname">A1. Ultima compra SKF <span class="badge b-req">Req</span></td><td>Opcion</td><td>Desde "Esta semana" hasta "Nunca". <span class="tip">Si dice Nunca, se habilita A1b.</span></td></tr>
+  <tr><td class="fname">A1b. Marca habitual <span class="badge b-cond">Cond</span></td><td>Texto</td><td>Solo si nunca compro SKF. Que marca usa y por que no SKF.</td></tr>
+  <tr><td class="fname">A2. Frecuencia de compra <span class="badge b-req">Req</span></td><td>Opcion</td><td>Veces/mes que compra repuestos. <span class="tip">A2b: numero exacto si lo sabe.</span></td></tr>
+  <tr><td class="fname">A3. Gasto mensual <span class="badge b-req">Req</span></td><td>Rango</td><td>Monto aproximado mensual en repuestos. <span class="tip">A3b: monto exacto.</span></td></tr>
+  <tr><td class="fname">A4. % SKF del total <span class="badge b-req">Req</span></td><td>Opcion</td><td>Porcentaje de SKF sobre el total de repuestos.</td></tr>
+  <tr><td class="fname">A5. Canal de compra <span class="badge b-req">Req</span></td><td>Opcion</td><td>Distribuidor, mayorista, directo, online. <span class="tip">A5b: nombre del proveedor.</span></td></tr>
+</table>
+
+<!-- ============ SECTION 3 ============ -->
+<h2 class="section-title">Pagina 3 &mdash; Seccion B: Posicion de Marca SKF</h2>
+<p class="section-desc">Awareness y posicionamiento frente a la competencia.</p>
+<table class="fields-table">
+  <tr><th style="width:30%">Campo</th><th style="width:8%">Tipo</th><th>Instruccion</th></tr>
+  <tr><td class="fname">B1. Top of Mind <span class="badge b-req">Req</span></td><td>Texto x3</td><td>3 marcas de rodamientos que vienen a la mente. <strong>NO mencionar SKF antes.</strong> Registrar en orden.</td></tr>
+  <tr><td class="fname">B2. Lineas SKF <span class="badge b-req">Req</span></td><td>Multi</td><td>3 lineas de producto que asocia con SKF (rodamientos, correas, retenes...).</td></tr>
+  <tr><td class="fname">B2b. Conoce/vende SKF <span class="badge b-req">Req</span></td><td>Opcion</td><td>Si conoce y vende. <span class="tip">Si conoce pero NO vende: B2c pide motivo.</span></td></tr>
+  <tr><td class="fname">B3. Marca preferida <span class="badge b-req">Req</span></td><td>Texto</td><td>Que marca recomienda a clientes y por que (B3b).</td></tr>
+</table>
+
+<!-- ============ SECTION 4 ============ -->
+<h2 class="section-title">Pagina 4 &mdash; Seccion C: Oportunidad Comercial</h2>
+<p class="section-desc">Identifica oportunidades y agenda proximos pasos.</p>
+<table class="fields-table">
+  <tr><th style="width:30%">Campo</th><th style="width:8%">Tipo</th><th>Instruccion</th></tr>
+  <tr><td class="fname">C1. Problemas con proveedores <span class="badge b-req">Req</span></td><td>Texto</td><td>Dolores/necesidades actuales. <span class="tip">Escucha activa: puerta de entrada comercial.</span></td></tr>
+  <tr><td class="fname">C2. Interes en info SKF <span class="badge b-req">Req</span></td><td>Si/No</td><td>Quiere info sobre disponibilidad/beneficios. <span class="tip">C2b: WhatsApp, email, visita.</span></td></tr>
+  <tr><td class="fname">C3. Motivacion <span class="badge b-req">Req</span></td><td>Multi</td><td>Que lo haria comprar/ampliar SKF: precio, calidad, disponibilidad, soporte.</td></tr>
+  <tr><td class="fname">C4. Proxima visita <span class="badge b-req">Req</span></td><td>Opcion</td><td>Mejor momento para volver. <span class="tip">C4b: forma de contacto preferida.</span></td></tr>
+</table>
+
+<!-- ============ SECTION 5 ============ -->
+<h2 class="section-title">Pagina 5 &mdash; Seccion D: Observacion y Fotos</h2>
+<table class="fields-table">
+  <tr><th style="width:30%">Campo</th><th style="width:8%">Tipo</th><th>Instruccion</th></tr>
+  <tr><td class="fname">D4. Observaciones <span class="badge b-opt">Opc</span></td><td>Texto largo</td><td>Impresion general, detalles, oportunidades detectadas.</td></tr>
+  <tr><td class="fname">Foto fachada <span class="badge b-req">Req</span></td><td>Foto</td><td>Foto clara de la fachada. <strong>Debe verse el nombre del local.</strong></td></tr>
+  <tr><td class="fname">Foto exhibicion <span class="badge b-opt">Opc</span></td><td>Foto</td><td>Productos SKF exhibidos en el local.</td></tr>
+  <tr><td class="fname">Foto mostrador <span class="badge b-opt">Opc</span></td><td>Foto</td><td>Area de atencion.</td></tr>
+  <tr><td class="fname">Geolocalizacion <span class="badge b-auto">Auto</span></td><td>GPS</td><td>Automatico. Asegurate de tener GPS activado.</td></tr>
+  <tr><td class="fname">Hora <span class="badge b-auto">Auto</span></td><td>Timestamp</td><td>Se registra al enviar.</td></tr>
+</table>
+
+<!-- ============ TIPS + REPS ============ -->
+<div class="tips-box">
+  <h3>Consejos Rapidos</h3>
+  <ul>
+    <li>Carga la encuesta apenas termines la visita, mientras la info esta fresca.</li>
+    <li>Si la app se traba, no cierres &mdash; espera unos segundos. Jotform guarda borradores.</li>
+    <li>Revisa antes de enviar. Una vez enviada, <strong>no se puede editar</strong>.</li>
+    <li>PDV no encontrado? Selecciona ">> PDV NO ENCONTRADO" y completa manualmente.</li>
+    <li>Conectate a WiFi antes de subir fotos pesadas.</li>
+  </ul>
+</div>
+
+<div class="footer">
+  SKF Argentina &middot; Encuesta Trade Marketing 2026 &middot; Increxa BI &middot; v1.0
+</div>
+
+</div>
+</body>
+</html>
