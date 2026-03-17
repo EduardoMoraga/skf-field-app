@@ -20,6 +20,42 @@
   .logo span { font-size: 22px; font-weight: 800; color: #003366; }
   .header h1 { font-size: 20px; font-weight: 600; }
   .header p { font-size: 12px; opacity: 0.8; margin-top: 4px; }
+
+  /* App download banner */
+  .app-banner {
+    background: linear-gradient(135deg, #1b5e20 0%, #43a047 100%);
+    color: white; border-radius: 14px; padding: 16px 18px;
+    margin-bottom: 12px; text-align: center;
+    box-shadow: 0 2px 12px rgba(27,94,32,0.3);
+  }
+  .app-banner h3 { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+  .app-banner p { font-size: 11px; opacity: 0.9; margin-bottom: 12px; }
+  .store-buttons { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+  .store-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,0.15); color: white;
+    padding: 8px 14px; border-radius: 8px; text-decoration: none;
+    font-size: 11px; font-weight: 600;
+    transition: background 0.15s;
+  }
+  .store-btn:hover { background: rgba(255,255,255,0.25); }
+  .store-btn svg { width: 18px; height: 18px; fill: white; }
+
+  /* Main CTA */
+  .cta-card {
+    background: linear-gradient(135deg, #0070d2 0%, #00a3e0 100%);
+    color: white; border-radius: 14px; padding: 20px;
+    margin-bottom: 12px; text-align: center;
+    box-shadow: 0 4px 16px rgba(0,112,210,0.3);
+    text-decoration: none; display: block;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .cta-card:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,112,210,0.4); }
+  .cta-card .cta-icon { font-size: 32px; margin-bottom: 8px; }
+  .cta-card h3 { font-size: 16px; font-weight: 700; }
+  .cta-card p { font-size: 12px; opacity: 0.9; margin-top: 4px; }
+  .cta-card .cta-sub { font-size: 10px; opacity: 0.7; margin-top: 8px; }
+
   .card {
     background: white; border-radius: 14px; padding: 18px;
     margin-bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);
@@ -34,11 +70,11 @@
     display: flex; align-items: center; justify-content: center;
     font-size: 22px; flex-shrink: 0;
   }
-  .icon-survey { background: #e3f2fd; }
   .icon-routes { background: #e8f5e9; }
   .icon-manual { background: #fff3e0; }
   .card-content h3 { font-size: 14px; font-weight: 600; color: #1a1a2e; }
   .card-content p { font-size: 11px; color: #888; margin-top: 2px; }
+
   .disclaimer {
     background: white; border-radius: 14px; padding: 18px;
     margin-top: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);
@@ -55,6 +91,17 @@
     border-radius: 50%; display: flex; align-items: center; justify-content: center;
     font-size: 9px; font-weight: 700; flex-shrink: 0; }
   .footer { text-align: center; color: #bbb; font-size: 10px; margin-top: 20px; padding: 10px; }
+
+  /* Steps */
+  .steps { background: white; border-radius: 14px; padding: 16px 18px; margin-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .steps h3 { font-size: 13px; color: #003366; font-weight: 700; margin-bottom: 10px; }
+  .step { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 8px; }
+  .step-num { background: #0070d2; color: white; min-width: 24px; height: 24px;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700; flex-shrink: 0; }
+  .step-text { font-size: 12px; color: #333; line-height: 1.4; }
+  .step-text strong { color: #003366; }
 </style>
 </head>
 <body>
@@ -66,14 +113,40 @@
     <p>Argentina 2026</p>
   </div>
 
-  <a class="card" href="https://form.jotform.com/BIbiadmin/skf-argentina--encuesta-trade-marke">
-    <div class="card-icon icon-survey">&#128203;</div>
-    <div class="card-content">
-      <h3>Encuesta de Campo</h3>
-      <p>Completar encuesta en punto de venta</p>
+  <!-- PASO 1: Descargar la app -->
+  <div class="app-banner">
+    <h3>Paso 1: Descarga la App Jotform</h3>
+    <p>Necesitas la app instalada para acceder a las encuestas, check-in y check-out.</p>
+    <div class="store-buttons">
+      <a class="store-btn" href="https://apps.apple.com/app/jotform-mobile-forms/id890766813" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        App Store
+      </a>
+      <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.jotform.android" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M3 20.5v-17c0-.59.34-1.11.84-1.35L13.69 12l-9.85 9.85c-.5-.24-.84-.76-.84-1.35m13.81-5.38L6.05 21.34l8.49-8.49 2.27 2.27m3.35-4.31c.34.27.56.69.56 1.19s-.22.92-.56 1.19l-2.29 1.32-2.5-2.5 2.5-2.5 2.29 1.3M6.05 2.66l10.76 6.22-2.27 2.27-8.49-8.49z"/></svg>
+        Google Play
+      </a>
     </div>
+  </div>
+
+  <!-- PASO 2: Acceder a la APP -->
+  <a class="cta-card" href="https://www.jotform.com/app/increxa_skf/skf-argentina--encuesta-trade-marke" target="_blank">
+    <div class="cta-icon">&#128241;</div>
+    <h3>Abrir App SKF</h3>
+    <p>Encuestas, Check-in y Check-out</p>
+    <div class="cta-sub">Se abrira la app Jotform con los formularios del proyecto</div>
   </a>
 
+  <!-- Instrucciones rapidas -->
+  <div class="steps">
+    <h3>Como empezar</h3>
+    <div class="step"><div class="step-num">1</div><div class="step-text"><strong>Descarga</strong> la app Jotform desde tu tienda de apps.</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-text"><strong>Abre el boton "Abrir App SKF"</strong> de arriba. Te va a pedir iniciar sesion o crear cuenta.</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-text"><strong>Activa el GPS</strong> de tu celular antes de cada visita.</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-text"><strong>Completa</strong> Check-in al llegar, Encuesta en el PDV, y Check-out al salir.</div></div>
+  </div>
+
+  <!-- Recursos -->
   <a class="card" href="rutas.html">
     <div class="card-icon icon-routes">&#128506;</div>
     <div class="card-content">
@@ -90,6 +163,7 @@
     </div>
   </a>
 
+  <!-- Mandamientos -->
   <div class="disclaimer">
     <h3>Los 10 Mandamientos del Encuestador</h3>
     <ul class="cmd-list">
